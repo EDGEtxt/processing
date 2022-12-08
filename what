@@ -1,0 +1,18 @@
+def TwoEnd(number):
+    print(number%100)
+
+def StrUpLow(word):
+    word = word.upper()
+    list1 = list(word)
+    list1[0] = list1[0].lower()
+    list1[len(list1)-1] = list1[len(list1)-1].lower()
+    print(''.join(list1))
+
+def StrPlusFirstLetter(word):
+    list1 = list(word)
+    list1.append(list1[0])
+    print(list1)
+
+TwoEnd(int(input()))
+StrUpLow(input())
+StrPlusFirstLetter(input())
