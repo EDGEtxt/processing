@@ -1,0 +1,61 @@
+import keyboard as kb
+import time as t
+import random as rnd
+
+place = [['','','','','',''],
+         ['','','','','',''],
+         ['','','','','',''],
+         ['','','','','',''],
+         ['','','','','',''],
+         ['','','','_','','']]
+
+ying = 0
+xP = 4
+point = [0,1,2,3,4,5]
+
+l = input()
+while l != 'выход':
+    while True:
+        # player [5][3]
+        x0 = xP
+        
+        # очки
+        if '*' not in place[0] and '*' not in place[1] and '*' not in place[2] and '*' not in place[3] and '*' not in place[4]:
+            place[ying][rnd.choice(point)] == '*'
+        if '*' in place[5][xP]:
+            ying = 0
+            place[5][xP] == '_'
+            print("расава")
+        else:
+            print('бывает')
+            ying = 0
+                
+                
+        # управление
+        if kb.press_and_release('A'):
+            xP -= 1
+        elif kb.press_and_release('D'):
+            xP += 1
+        
+        
+        # "стены"
+        if xP == -1:
+            xP += 1
+        elif xP == 6:
+            xP -= 1
+        else:
+            # движения игрока
+            place[5][xP] = '_'
+            place[5][x0] = ''
+            
+        ying += 1
+        t.sleep(1)
+            
+        
+        
+        
+        
+        
+        
+        
+exit()
