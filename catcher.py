@@ -9,6 +9,7 @@ place = [['','','','','',''],
          ['','','','','',''],
          ['','','','_','','']]
 
+lockedPoint = 0
 ying = 0
 xP = 4
 point = [0,1,2,3,4,5]
@@ -20,15 +21,20 @@ while l != 'выход':
         x0 = xP
         
         # очки
-        if '*' not in place[0] and '*' not in place[1] and '*' not in place[2] and '*' not in place[3] and '*' not in place[4]:
-            place[ying][rnd.choice(point)] == '*'
+        if '*' not in place[0] and '*' not in place[1] and '*' not in place[2] and '*' not in place[3] and '*' not in place[4] and '*' not in place[5]:
+            # спускается
+            place[ying + 1][lockedPoint] = '*'
         if '*' in place[5][xP]:
+            # попадает
             ying = 0
-            place[5][xP] == '_'
+            lockedPoint = rnd.choice(point)
+            place[5][xP] = '_'
             print("расава")
         else:
+            # не попадает
             print('бывает')
             ying = 0
+            rnd.choice(point)
                 
                 
         # управление
@@ -48,14 +54,12 @@ while l != 'выход':
             place[5][xP] = '_'
             place[5][x0] = ''
             
+        for i in place:
+            for y in i:
+                print(y, end='')
+            print()
+            
         ying += 1
         t.sleep(1)
-            
-        
-        
-        
-        
-        
-        
-        
+              
 exit()
